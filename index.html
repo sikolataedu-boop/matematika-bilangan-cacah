@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#123a69">
+  <meta name="description" content="Mainkan game edukasi Matematika Bilangan Cacah secara online.">
+  <title>Game Matematika Bilangan Cacah</title>
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: flex; flex-direction: column; font: 500 14px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif; background: #edf3f9; color: #123a69; }
+    header { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 9px 16px; min-height: 56px; background: #fff; box-shadow: 0 2px 8px #0c24431a; z-index: 1; }
+    h1 { margin: 0; font-size: clamp(15px, 2.5vw, 20px); line-height: 1.25; }
+    .actions { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; cursor: pointer; border: 1px solid #c6d4e4; border-radius: 9px; background: #fff; color: #123a69; padding: 8px 11px; font: inherit; white-space: nowrap; }
+    .btn:hover { background: #eef6ff; }
+    .btn.primary { background: #155fb8; border-color: #155fb8; color: #fff; }
+    .btn.primary:hover { background: #104d96; }
+    main { position: relative; flex: 1; min-height: 0; }
+    iframe { display: block; width: 100%; height: 100%; border: none; background: #fff; }
+    .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    @media (max-width: 580px) { header { flex-direction: column; align-items: stretch; padding: 10px; } h1 { text-align: center; } .actions { justify-content: center; } .btn { padding: 7px 10px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎮 Matematika Bilangan Cacah</h1>
+    <nav class="actions" aria-label="Kontrol game">
+      <button id="fullscreen" class="btn" type="button" aria-label="Tampilkan game dalam layar penuh">⛶ Layar penuh</button>
+      <a class="btn primary" href="https://sikolataedu-boop.github.io/matematika-bilangan-cacah/MATEMATIKA%20BILANGAN%20CACAH.html" target="_blank" rel="noopener noreferrer">↗ Buka game langsung</a>
+    </nav>
+  </header>
+  <main>
+    <iframe
+      id="game"
+      title="Game interaktif Matematika Bilangan Cacah"
+      src="https://sikolataedu-boop.github.io/matematika-bilangan-cacah/MATEMATIKA%20BILANGAN%20CACAH.html"
+      allow="autoplay; fullscreen"
+      allowfullscreen
+      referrerpolicy="strict-origin-when-cross-origin"
+    ></iframe>
+  </main>
+  <script>
+    (function () {
+      var button = document.getElementById('fullscreen');
+      var frame = document.getElementById('game');
+      button.addEventListener('click', function () {
+        if (frame.requestFullscreen) {
+          frame.requestFullscreen().catch(function () {
+            window.open(frame.src, '_blank', 'noopener,noreferrer');
+          });
+        } else {
+          window.open(frame.src, '_blank', 'noopener,noreferrer');
+        }
+      });
+    }());
+  </script>
+</body>
+</html>
